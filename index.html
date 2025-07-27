@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PhyCAD</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="header">
+        PhyCAD
+    </header>
+    <section class="main">
+        <div class="main__left-container container">
+            <div class="tools panel">
+                <div class="tools-create wrapper">
+                    <div class="tool">
+                        <img src="assets/addobject.png" alt="addObject" class="tool-icon">
+                        <h1 class="tool-text">
+                            New <br> Object
+                        </h1>
+                    </div>
+                    <div class="tool">
+                        <img src="assets/addphysics.png" alt="addObject" class="tool-icon">
+                        <h1 class="tool-text">
+                            New <br> Physics
+                        </h1>
+                    </div>
+                </div>
+                <hr>
+                <div class="tools-simulator wrapper">
+                    <div class="simulator-left simulator-container">
+                        <div class="tool-input">
+                            <h1 class="tool-input__text">
+                                Gravity
+                            </h1>
+                            <input type="number" class="tool-input__field" id="gravity" value="9.81">
+                        </div>
+                        <div class="tool-input">
+                            <h1 class="tool-input__text">
+                                Air Resistance
+                            </h1>
+                            <input type="number" class="tool-input__field" id="gravity" value="9.81">
+                        </div>
+                    </div>
+                    <div class="simulator-right simulator-container">
+                        <div class="tool-input">
+                            <h1 class="tool-input__text">
+                                Runtime Speed
+                            </h1>
+                            <input type="number" class="tool-input__field" id="gravity" value="9.81">
+                        </div>
+                        <div class="tool-simulator-controls">
+                            <button class="tool-simulator-controls__button" id="start-simulation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-start-fill" viewBox="0 0 16 16">
+                                    <path d="M4 4a.5.5 0 0 1 1 0v3.248l6.267-3.636c.54-.313 1.232.066 1.232.696v7.384c0 .63-.692 1.01-1.232.697L5 8.753V12a.5.5 0 0 1-1 0z"/>
+                                </svg>
+                            </button>
+                            <button class="tool-simulator-controls__button" id="pause-simulation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-play-fill" viewBox="0 0 16 16">
+                                    <path d="m11.596 8.697-6.363 3.692c-.54.313-1.233-.066-1.233-.697V4.308c0-.63.692-1.01 1.233-.696l6.363 3.692a.802.802 0 0 1 0 1.393"/>
+                                </svg>
+                            </button>
+                            <button class="tool-simulator-controls__button" id="stop-simulation">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-skip-end-fill" viewBox="0 0 16 16">
+                                    <path d="M12.5 4a.5.5 0 0 0-1 0v3.248L5.233 3.612C4.693 3.3 4 3.678 4 4.308v7.384c0 .63.692 1.01 1.233.697L11.5 8.753V12a.5.5 0 0 0 1 0z"/>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <hr>
+            </div>
+            <canvas class="scene" id="scene"></canvas>
+            <div class="materials panel">
+                <header class="materials-header panel-header">
+                    <h1 class="panel-header__text">
+                        Materials
+                    </h1>
+                </header>
+                <div class="materials-container">
+                    <div class="material">
+                        <div class="material-container">
+                            <div class="material-header"></div>
+                            <div class="material-preview">
+                                <img src="assets/matbackground.png" alt="bg" class="material-preview__image">
+                            </div>
+                        </div>
+                        <h1 class="material-name">
+                            Material 1
+                        </h1>
+                    </div>
+                    <div class="material">
+                        <div class="material-container">
+                            <div class="material-header"></div>
+                            <div class="material-preview">
+                                <img src="assets/matbackground.png" alt="bg" class="material-preview__image">
+                            </div>
+                        </div>
+                        <h1 class="material-name">
+                            Material 2
+                        </h1>
+                    </div>
+                    <div class="material">
+                        <div class="material-container">
+                            <div class="material-header"></div>
+                            <div class="material-preview">
+                                <img src="assets/matbackground.png" alt="bg" class="material-preview__image">
+                            </div>
+                        </div>
+                        <h1 class="material-name">
+                            Material 3
+                        </h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="main__right-container container">
+            <div class="objects panel">
+                <header class="objects-header panel-header">
+                    <h1 class="panel-header__text">
+                        Objects
+                    </h1>
+                </header>
+                <div class="objects-container">
+                    <ul class="object-list">
+                        <li class="object-item">
+                            <img src="assets/cube.png" alt="Box" class="object-item__icon">
+                            <span class="object-item__name">Box</span>
+                        </li>
+                        <li class="object-item">
+                            <img src="assets/sphere.png" alt="Sphere" class="object-item__icon">
+                            <span class="object-item__name">Sphere</span>
+                        </li>
+                        <li class="object-item">
+                            <img src="assets/cylinder.png" alt="Cylinder" class="object-item__icon">
+                            <span class="object-item__name">Cylinder</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="properties panel">
+                <header class="properties-header panel-header">
+                    <h1 class="panel-header__text">
+                        Properties
+                    </h1>
+                </header>
+                <header class="properties-header panel-properties-header">
+                    <h1 class="panel-header__text">
+                        Transform
+                    </h1>
+                </header>
+                <div class="properties-container__transform">
+                    <div class="position-property">
+                        <h1 class="property-text">
+                            Position
+                        </h1>
+                        <div class="property-inputs">
+                            <input type="number" class="property-input" placeholder="X" id="position-x">
+                            <input type="number" class="property-input" placeholder="Y" id="position-y">
+                            <input type="number" class="property-input" placeholder="Z" id="position-z">
+                        </div>
+                    </div>
+                    <div class="position-property">
+                        <h1 class="property-text">
+                            Rotation
+                        </h1>
+                        <div class="property-inputs">
+                            <input type="number" class="property-input" placeholder="X" id="position-x">
+                            <input type="number" class="property-input" placeholder="Y" id="position-y">
+                            <input type="number" class="property-input" placeholder="Z" id="position-z">
+                        </div>
+                    </div>
+                    <div class="position-property">
+                        <h1 class="property-text">
+                            Scale
+                        </h1>
+                        <div class="property-inputs">
+                            <input type="number" class="property-input" placeholder="X" id="position-x">
+                            <input type="number" class="property-input" placeholder="Y" id="position-y">
+                            <input type="number" class="property-input" placeholder="Z" id="position-z">
+                        </div>
+                    </div>
+                </div>
+                <header class="properties-header panel-properties-header">
+                    <h1 class="panel-header__text">
+                        Physics
+                    </h1>
+                </header>
+                <div class="properties-container__physics">
+                    <div class="property">
+                        <h1 class="property-text">
+                            Mass
+                        </h1>
+                        <input type="number" class="property-input" id="mass">
+                        <button class="delete-property">
+                            Delete Tag
+                        </button>
+                    </div>
+                    <div class="property">
+                        <h1 class="property-text">
+                            Friction
+                        </h1>
+                        <input type="number" class="property-input" id="friction">
+                        <button class="delete-property">
+                            Delete Tag
+                        </button>
+                    </div>
+                    <div class="property">
+                        <h1 class="property-text">
+                            Bounciness
+                        </h1>
+                        <input type="number" class="property-input" id="bounciness">
+                        <button class="delete-property">
+                            Delete Tag
+                        </button>
+                    </div>
+                    <div class="property">
+                        <h1 class="property-text">
+                            Velocity
+                        </h1>
+                        <input type="number" class="property-input" id="bounciness">
+                        <button class="delete-property">
+                            Delete Tag
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="https://unpkg.com/three@0.155.0/examples/js/geometries/TextGeometry.js"></script>
+    <script src="https://unpkg.com/three@0.155.0/examples/js/loaders/FontLoader.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
+    <script src="3dscene.js"></script>
+</body>
+</html>
