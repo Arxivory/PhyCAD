@@ -54,24 +54,6 @@ scene.add(camera);
 
 renderer.setSize(width, height);
 
-
-const functionCurve = new THREE.BufferGeometry();
-const points = [];
-
-for (let x = -10; x <= 10; x += 0.1) {
-  const y = x * x; 
-  const z = 0;
-  points.push(new THREE.Vector3(x, y, z));
-}
-
-functionCurve.setFromPoints(points);
-
-const material = new THREE.LineBasicMaterial({ color: 0xff0000 });
-const functionLine = new THREE.Line(functionCurve, material);
-scene.add(functionLine);
-
-
-
 const renderLoop = () => {
     renderer.render(scene, camera);
     controls.update();
