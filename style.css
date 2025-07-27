@@ -88,6 +88,10 @@
     align-items: center;
 }
 
+.tools.panel {
+    overflow: hidden;
+}
+
 .tool-icon {
     width: 50px;
 }
@@ -330,3 +334,55 @@ hr {
     justify-content: center;
     background-color: var(--white);
 }
+
+.properties-container__material {
+    padding: 10px;
+    display: flex;
+    gap: 20px;
+}
+
+.material-property {
+    width: 150px;
+    height: 150px;
+    background-image: url('assets/matbackground.png');
+    background-size: cover;
+    border: 2px solid var(--stroke);
+}
+
+.material-settings {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.material-setting {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.material-setting__text {
+    font-size: 14px;
+    color: var(--tertiary);
+}
+
+.material-setting__input {
+    width: 50px;
+    height: 15px;
+    border: 2px solid var(--stroke);
+    border-radius: var(--curve);
+    padding: 5px;
+    font-size: 14px;
+    color: var(--tertiary);
+}
+
+input[type="color"] {
+    width: 63px;
+    height: 25px;
+    border: 2px solid var(--stroke);
+    border-radius: var(--curve);
+    padding: 5px;
+    color: var(--tertiary);
+}
+
