@@ -83,7 +83,7 @@
                         <div class="material-container">
                             <div class="material-header"></div>
                             <div class="material-preview">
-                                <img src="assets/matbackground.png" alt="bg" class="material-preview__image">
+                                <canvas class="material-preview-canvas" id="material-canvas-preview"></canvas>
                             </div>
                         </div>
                         <h1 class="material-name">
@@ -94,7 +94,7 @@
                         <div class="material-container">
                             <div class="material-header"></div>
                             <div class="material-preview">
-                                <img src="assets/matbackground.png" alt="bg" class="material-preview__image">
+                                <canvas class="material-preview-canvas" id="material-canvas-preview"></canvas>
                             </div>
                         </div>
                         <h1 class="material-name">
@@ -105,7 +105,7 @@
                         <div class="material-container">
                             <div class="material-header"></div>
                             <div class="material-preview">
-                                <img src="assets/matbackground.png" alt="bg" class="material-preview__image">
+                                <canvas class="material-preview-canvas" id="material-canvas-preview"></canvas>
                             </div>
                         </div>
                         <h1 class="material-name">
@@ -223,7 +223,9 @@
                         </div>
                     </div>
                     <div class="material-property">
-
+                       <div class="material-preview">
+                                <canvas class="material-preview-canvas" id="material-canvas-preview"></canvas>
+                        </div>
                     </div>
                 </div>
                 <header class="properties-header panel-properties-header">
@@ -277,6 +279,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
-    <script src="3dscene.js"></script>
+    <script src="3dscene.js" type="module"></script>
+    <script src="materialpreview.js" type="module"></script>
 </body>
 </html>

@@ -192,11 +192,12 @@ hr {
     flex-direction: column;
     border: 2px solid var(--stroke);
     border-radius: var(--curve);
+    position: relative;
 }
 
 .material-header {
     width: 100%;
-    height: 30px;
+    height: 10px;
     background-color: var(--secondary);
     border-bottom: 1.5px solid var(--stroke);
     border-top-left-radius: var(--curve);
@@ -205,20 +206,10 @@ hr {
 
 .material-preview {
     width: 100%;
-    height: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: var(--primary);
-    border-bottom-left-radius: var(--curve);
-    border-bottom-right-radius: var(--curve);
-}
-
-.material-preview__image {
-    width: 80px;
-    height: 74px;
-    border-bottom-left-radius: var(--curve);
-    border-bottom-right-radius: var(--curve);
+    height: 100%;
+    background-image: url('assets/matbackground.png');
+    background-size: cover;
+    border-radius: var(--curve);
 }
 
 .object-list {
@@ -231,6 +222,13 @@ hr {
     padding: 5px 0 5px 5px;
     box-sizing: border-box;
     overflow-y: hidden;
+}
+
+.material-preview-canvas {
+    position: absolute;
+    top: 3px;
+    width: 100%;
+    height: 100%;
 }
 
 .object-item {
@@ -347,6 +345,7 @@ hr {
     background-image: url('assets/matbackground.png');
     background-size: cover;
     border: 2px solid var(--stroke);
+    position: relative;
 }
 
 .material-settings {
