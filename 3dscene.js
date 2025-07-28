@@ -101,7 +101,7 @@ function addTube(name) {
     scene.add(tube.mesh);
 }
 
-function addObject(name, objectType) {
+export function addObject(name, objectType) {
     switch (objectType) {
         case 'Cube':
             addCube(name);
