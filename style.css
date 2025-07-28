@@ -91,8 +91,8 @@ button {
     flex-direction: column;
     align-items: center;
     border-radius: var(--curve);
+    cursor: pointer;
 }
-
 
 .tools.panel {
     overflow: hidden;
@@ -391,3 +391,42 @@ input[type="color"] {
     color: var(--tertiary);
 }
 
+.object-modal.hidden {
+    display: none;
+    transform: translate(0, -10%);
+    opacity: 0;
+}
+
+.object-modal {
+    position: absolute;
+    top: 8.8rem;
+    left: 0.3rem;
+    width: 400px;
+    height: 180px;
+    background-color: rgba(224, 231, 240, 0.414);
+    backdrop-filter: blur(5px);
+    border: 2px solid var(--stroke);
+    border-radius: var(--curve);
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    transition: 0.3s ease;
+}
+
+.object-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.object-icon {
+    width: 40px;
+    height: 40px;
+}
+
+.object-name {
+    font-size: 15px;
+    color: var(--tertiary);
+}

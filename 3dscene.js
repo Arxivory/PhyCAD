@@ -6,7 +6,6 @@ import { Ring } from './Objects/Ring.js';
 import { Tube } from './Objects/Tube.js';
 
 const canvas = document.getElementById('scene');
-const addObjectButton = document.querySelector('.tool-new-object');
 const width = canvas.clientWidth, height = canvas.clientHeight, fov = 45;
 let aspectRatio = width / height;
 let objects = [];
@@ -126,11 +125,6 @@ function addObject(name, objectType) {
 }
 
 renderer.setSize(width, height);
-
-addObjectButton.addEventListener('click', () => {
-    addObject('Test Object', 'Cube');
-    id++;
-})
 
 const renderLoop = () => {
     renderer.render(scene, camera);
