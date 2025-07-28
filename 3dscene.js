@@ -20,25 +20,6 @@ controls.enableDamping = true;
 const gridHelper = new THREE.GridHelper(30, 30);
 const axesHelper = new THREE.AxesHelper(10);
 
-const torusKnotGeometry = new THREE.TorusKnotGeometry(0.5, 0.2, 100, 16);
-const torusKnotMaterial = new THREE.MeshPhysicalMaterial({
-    metalness: 0.76,
-    roughness: 0.51,
-    reflectivity: 0.58,
-});
-const torusKnotMesh = new THREE.Mesh(
-    torusKnotGeometry,
-    torusKnotMaterial
-);
-
-const cubeGeometry = new THREE.BoxGeometry(1, 1, 1);
-const cubeMesh = new THREE.Mesh(
-    cubeGeometry,
-    torusKnotMaterial
-);
-
-cubeMesh.position.set(-2, 0, 0);
-
 const light = new THREE.AmbientLight(0xffffff, 0.3);
 
 const pointLight = new THREE.PointLight(0xffffff, 1);
@@ -46,8 +27,6 @@ pointLight.position.set(5, 5, 5);
 
 scene.add(axesHelper);
 scene.add(gridHelper);
-scene.add(torusKnotMesh);
-scene.add(cubeMesh);
 scene.add(light);
 scene.add(pointLight);
 scene.add(camera);
