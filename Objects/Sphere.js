@@ -1,4 +1,6 @@
-class Sphere extends Object {
+import { Object } from './Object.js';
+
+export class Sphere extends Object {
     constructor(name, position, rotation, scale, material) {
         super(name, position, rotation, scale, material);
         this.geometry = new THREE.SphereGeometry(this.scale.x / 2, 32, 32);

@@ -1,4 +1,6 @@
-class Ring extends Object {
+import { Object } from './Object.js';
+
+export class Ring extends Object {
     constructor(name, position, rotation, scale, material) {
         super(name, position, rotation, scale, material);
         this.geometry = new THREE.RingGeometry(this.scale.x / 2, this.scale.y / 2, 32);

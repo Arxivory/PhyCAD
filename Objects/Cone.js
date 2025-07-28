@@ -1,4 +1,6 @@
-class Clone extends Object {
+import { Object } from './Object.js';
+
+export class Cone extends Object {
     constructor(name, position, rotation, scale, material) {
         super(name, position, rotation, scale, material);
         this.geometry = new THREE.ConeGeometry(this.scale.x / 2, this.scale.y, 32);

@@ -1,4 +1,6 @@
-class Tube extends Object {
+import { Object } from './Object.js';
+
+export class Tube extends Object {
     constructor(name, position, rotation, scale, material) {
         super(name, position, rotation, scale, material);
         this.geometry = new THREE.CylinderGeometry(this.scale.x / 2, this.scale.x / 2, this.scale.y, 32);

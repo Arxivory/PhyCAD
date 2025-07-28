@@ -1,10 +1,11 @@
-class Object {
-    constructor(name, position, rotation, scale, material) {
+export class Object {
+    constructor(id, name, position, rotation, scale, material) {
+        this.id = id;
         this.name = name;
         this.position = position || new THREE.Vector3(0, 0, 0);
         this.rotation = rotation || new THREE.Vector3(0, 0, 0);
         this.scale = scale || new THREE.Vector3(1, 1, 1);
-        this.material = material || new THREE.MeshBasicMaterial({ color: 0xffffff });;
+        this.material = material || new THREE.MeshBasicMaterial({ color: 0xffffff });
     }
 
     setPosition(x, y, z) {
