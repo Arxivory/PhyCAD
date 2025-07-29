@@ -4,6 +4,7 @@ import { Cone } from './Objects/Cone.js'
 import { Cylinder } from './Objects/Cylinder.js';
 import { Ring } from './Objects/Ring.js';
 import { Tube } from './Objects/Tube.js';
+import { Torus } from './Objects/Torus.js';
 
 const canvas = document.getElementById('scene');
 const width = canvas.clientWidth, height = canvas.clientHeight, fov = 45;
@@ -101,6 +102,16 @@ function addTube(name) {
     scene.add(tube.mesh);
 }
 
+function addTorus(name) {
+    const position = new THREE.Vector3(0, 0, 0);
+    const rotation = new THREE.Vector3(0, 0, 0);
+    const scale = new THREE.Vector3(1, 1, 1);
+    const material = new THREE.MeshStandardMaterial({ color: 0xffffff });
+    const torus = new Torus(id, name, position, rotation, scale, material);
+    objects.push(torus);
+    scene.add(torus.mesh);
+}
+
 export function addObject(name, objectType) {
     switch (objectType) {
         case 'Cube':
@@ -120,6 +131,9 @@ export function addObject(name, objectType) {
             break;
         case 'Tube':
             addTube(name);
+            break;
+        case 'Torus':
+            addTorus(name);
             break;
     }
 }
