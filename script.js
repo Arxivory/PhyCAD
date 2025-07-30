@@ -3,13 +3,8 @@ import { addObject  } from "./3dscene.js";
 const newObjectButton = document.querySelector('.tool-new-object');
 const objectContainer = document.querySelector('.object-modal');
 const objectsList = document.querySelector('.object-list');
+const objectItems = document.querySelectorAll('.object-container');
 
-const cubeItem = document.querySelector('.cube');
-const sphereItem = document.querySelector('.sphere');
-const cylinderItem = document.querySelector('.cylinder');
-const coneItem = document.querySelector('.cone');
-const tubeItem = document.querySelector('.tube');
-const torusItem = document.querySelector('.torus');
 
 newObjectButton.addEventListener('click', () => {
     objectContainer.classList.toggle('hidden');
@@ -18,6 +13,7 @@ newObjectButton.addEventListener('click', () => {
 function addCubeItem() {
     const item = document.createElement('li');
     item.className = 'object-item';
+    item.draggable = true;
     item.innerHTML = `
         <img src="assets/cube.png" alt="Box" class="object-item__icon">
         <span class="object-item__name">Cube</span>
@@ -28,6 +24,7 @@ function addCubeItem() {
 function addSphereItem() {
     const item = document.createElement('li');
     item.className = 'object-item';
+    item.draggable = true;
     item.innerHTML = `
         <img src="assets/sphere.png" alt="Sphere" class="object-item__icon">
         <span class="object-item__name">Sphere</span>
@@ -38,6 +35,7 @@ function addSphereItem() {
 function addCylinderItem() {
     const item = document.createElement('li');
     item.className = 'object-item';
+    item.draggable = true;
     item.innerHTML = `
         <img src="assets/cylinder.png" alt="Cylinder" class="object-item__icon">
         <span class="object-item__name">Cylinder</span>
@@ -48,6 +46,7 @@ function addCylinderItem() {
 function addConeItem() {
     const item = document.createElement('li'); 
     item.className = 'object-item';
+    item.draggable = true;
     item.innerHTML = `
         <img src="assets/cylinder.png" alt="Cone" class="object-item__icon">
         <span class="object-item__name">Cone</span>
@@ -58,6 +57,7 @@ function addConeItem() {
 function addTubeItem() {
     const item = document.createElement('li'); 
     item.className = 'object-item';
+    item.draggable = true;
     item.innerHTML = `
         <img src="assets/tube.png" alt="Cone" class="object-item__icon">
         <span class="object-item__name">Tube</span>
@@ -68,6 +68,7 @@ function addTubeItem() {
 function addTorusItem() {
     const item = document.createElement('li'); 
     item.className = 'object-item';
+    item.draggable = true;
     item.innerHTML = `
         <img src="assets/torus.png" alt="Torus" class="object-item__icon">
         <span class="object-item__name">Torus</span>
@@ -75,38 +76,52 @@ function addTorusItem() {
     objectsList.appendChild(item);
 }
 
-cubeItem.addEventListener('click', () => {
-    addCubeItem();
-    objectContainer.classList.toggle('hidden');
-    addObject('New Cube', 'Cube');
+objectItems.forEach(item => {
+    item.addEventListener('dragstart', (event) => {
+        event.dataTransfer.setData('text/plain', item.className);
+    });
 });
 
-sphereItem.addEventListener('click', () => {
-    addSphereItem();
-    objectContainer.classList.toggle('hidden');
-    addObject('New Sphere', 'Sphere');
+objectsList.addEventListener('dragover', (event) => {
+    event.preventDefault(); 
 });
 
-cylinderItem.addEventListener('click', () => {
-    addCylinderItem();
-    objectContainer.classList.toggle('hidden');
-    addObject('New Cylinder', 'Cylinder');
+objectsList.addEventListener('drop', (event) => {
+    event.preventDefault();
+    const type = event.dataTransfer.getData('text/plain');
+    
+    switch (type) {
+        case 'object-container cube':
+            addCubeItem();
+            addObject('Cube', 'Cube'); 
+            break;
+        case 'object-container sphere':
+            addSphereItem();
+            addObject('Sphere', 'Sphere');
+            break;
+        case 'object-container cylinder':
+            addCylinderItem();
+            addObject('Cylinder', 'Sylinder');
+            break;
+        case 'object-container cone':
+            addConeItem();
+            addObject('Cone', 'Cone');
+            break;
+        case 'object-container tube':
+            addTubeItem();
+            addObject('Tube', 'Tube');
+            break;
+        case 'object-container torus':
+            addTorusItem();
+            addObject('Torus', 'Torus');
+            break;
+        default:
+            console.warn(`Unknown object type: ${type}`);
+    }
 });
 
-coneItem.addEventListener('click', () => {
-    addConeItem();
-    objectContainer.classList.toggle('hidden');
-    addObject('New Cone', 'Cone');
-});
 
-tubeItem.addEventListener('click', () => {
-    addTubeItem();
-    objectContainer.classList.toggle('hidden');
-    addObject('New Tube', 'Tube');
-});
 
-torusItem.addEventListener('click', () => {
-    addTorusItem();
-    objectContainer.classList.toggle('hidden');
-    addObject('New Torus', 'Torus');
-});
+
+
+
